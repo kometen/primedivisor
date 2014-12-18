@@ -8,14 +8,18 @@ vector<int> divisors;
 
 vector<int> prime(int x, int b, int n) {
 	auto s = 0;
+	auto second = 0;
 	auto loop_prime_divisor = true;
 	for (s = x; s <= b && loop_prime_divisor; ++s) {
 		if (n % s == 0) {
-			if (s <= (n / s)) {
-				cout << "n = s * t : " << n << " = " << s << " * " << (n / s) << endl;
+			second = n / s;
+			if (s <= second) {
+				cout << "n = s * t : " << n << " = " << s << " * " << second << endl;
 				divisors.push_back(s);
-				divisors.push_back(n / s);
-				return prime(x, b, (n / s));
+				if (s != second) {
+					divisors.push_back(second);
+				}
+				return prime(x, b, second);
 				loop_prime_divisor = false;
 			}
 		}
