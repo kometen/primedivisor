@@ -16,7 +16,9 @@ vector<int> prime(int x, int b, int n) {
 			if (s <= second) {
 				cout << "n = s * t : " << n << " = " << s << " * " << second << endl;
 				divisors.push_back(s);
-				if (s != second) {
+				if (s == second) {	// Hence not prime, remove 'parent' product
+					divisors.erase(divisors.end()-2);
+				} else {
 					divisors.push_back(second);
 				}
 				return prime(x, b, second);
