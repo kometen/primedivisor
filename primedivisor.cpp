@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <cmath>
 #include <vector>
 #include <unordered_map>
@@ -37,11 +38,11 @@ unordered_map<int, int> primedivisor(int x, int b, int n) {
 			if (s <= second) {
 				cout << "n = s * t : " << n << " = " << s << " * " << second << endl;
 				if (IsPrime(s)) {
-					map_divisors = {{s, s}};
+					map_divisors[s] = s;
 				}
 				if (s != second) {
 					if (IsPrime(second)) {
-						map_divisors = {{second, second}};
+						map_divisors[second] = second;
 					}
 				}
 				return primedivisor(x, b, second);
@@ -53,10 +54,17 @@ unordered_map<int, int> primedivisor(int x, int b, int n) {
 }
 
 int main(int argc, char const *argv[]) {
+
+	if (argc < 2)
+	{
+		cout << "syntax: " << argv[0] << " [i]" << endl;
+		exit(0);
+	}
+	
 	unordered_map<int, int> mm;
 	auto y = 0;
 	auto is_prime = true;
-	auto n = 45;
+	auto n = atoi(argv[1]);
 	auto b = static_cast<int>(sqrt(n));
 
 	// Start with three as divisor if n > 2 to save one small step
