@@ -1,12 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-#include <vector>
 #include <unordered_map>
 
 using namespace std;
 
-vector<int> divisors;
 unordered_map<int, int> map_divisors;
 
 bool IsPrime(int a) {
@@ -40,7 +38,7 @@ unordered_map<int, int> primedivisor(int x, int b, int n) {
 				if (IsPrime(s)) {
 					map_divisors[s] = s;
 				}
-				if (s != second) {
+				if (s != second) {	// Second divisor, only add if different from first
 					if (IsPrime(second)) {
 						map_divisors[second] = second;
 					}
@@ -55,12 +53,11 @@ unordered_map<int, int> primedivisor(int x, int b, int n) {
 
 int main(int argc, char const *argv[]) {
 
-	if (argc < 2)
-	{
+	if (argc < 2) {
 		cout << "syntax: " << argv[0] << " [i]" << endl;
 		exit(0);
 	}
-	
+
 	unordered_map<int, int> mm;
 	auto y = 0;
 	auto is_prime = true;
