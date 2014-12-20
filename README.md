@@ -26,16 +26,16 @@ If the modulus on 101 and any given number between 3 and 10 is zero, it's not a 
 Yes, it's a prime.
 
 The second optimization is to only check for odd numbers, which is done by adding two to each
-step starting with three. So 3, 5, 7, 9.
+step starting with three. So 3, 5, 7, 9 and so forth.
 
-How about 103? Is that a prime? Squareroot is still 10.
+How about 111? Is that a prime? Squareroot is still 10.
 
-    103 % 3 = 1
-    103 % 5 = 3
-    103 % 7 = 5
-    103 % 9 = 4
+    111 % 3 = 0
+    111 % 5 = 1
+    111 % 7 = 6
+    111 % 9 = 3
 
-Yes, it's a prime.
+No, it's not a prime since 111 is divisible by three.
 
 The reason I wrote this program, which many others have done before me, was to get more into
 programming. I originally tried to write it in Apple's Swift, but I got some strange errors
