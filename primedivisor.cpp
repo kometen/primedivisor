@@ -5,7 +5,7 @@
 
 using namespace std;
 
-unordered_map<int, int> map_divisors;
+unordered_map<int, int> divisors;
 
 bool IsPrime(int a) {
 	auto b = static_cast<int>(sqrt(a));
@@ -26,7 +26,7 @@ bool IsPrime(int a) {
 	return prime;
 }
 
-unordered_map<int, int> primedivisor(int x, int b, int n) {
+void primedivisor(int x, int b, int n) {
 	auto s = 0;
 	auto second = 0;
 	auto loop_prime_divisor = true;
@@ -36,19 +36,18 @@ unordered_map<int, int> primedivisor(int x, int b, int n) {
 			if (s <= second) {
 				cout << "n = s * t : " << n << " = " << s << " * " << second << endl;
 				if (IsPrime(s)) {
-					map_divisors[s] = s;
+					divisors[s] = s;
 				}
 				if (s != second) {	// Second divisor, only add if different from first
 					if (IsPrime(second)) {
-						map_divisors[second] = second;
+						divisors[second] = second;
 					}
 				}
-				return primedivisor(x, b, second);
+				primedivisor(x, b, second);
 				loop_prime_divisor = false;
 			}
 		}
 	}
-	return map_divisors;
 }
 
 int main(int argc, char const *argv[]) {
@@ -58,7 +57,6 @@ int main(int argc, char const *argv[]) {
 		exit(0);
 	}
 
-	unordered_map<int, int> mm;
 	auto y = 0;
 	auto is_prime = true;
 	auto n = atoi(argv[1]);
@@ -72,10 +70,10 @@ int main(int argc, char const *argv[]) {
 
 	cout << "n: " << n << ", b: " << b << endl;
 
-	mm = primedivisor(x, b, n);
+	primedivisor(x, b, n);
 
-	cout << "mm map contains:";
-	for (auto it = mm.begin(); it != mm.end(); ++it) {
+	cout << "prime divisors:";
+	for (auto it = divisors.begin(); it != divisors.end(); ++it) {
 		cout << " " << it->first << ":" << it->second;
 	}
 	cout << endl;
