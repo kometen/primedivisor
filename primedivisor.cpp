@@ -5,7 +5,8 @@
 
 using namespace std;
 
-unordered_map<int, int> divisors;
+typedef unordered_map<int, int> _divisors;
+_divisors divisors;
 
 bool IsPrime(int a) {
 	auto b = static_cast<int>(sqrt(a));
@@ -51,6 +52,8 @@ void primedivisor(int x, int b, int n) {
 }
 
 int main(int argc, char const *argv[]) {
+
+	unordered_map<long int, _divisors> squareroots;
 
 	if (argc < 2) {
 		cout << "syntax: " << argv[0] << " [i]" << endl;
