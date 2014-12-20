@@ -14,13 +14,13 @@ The first optimization is to start the loop at three for any number greater than
 Is 101 a prime? The squareroot is 10. So the loop will be from 3 to 10, including those two.
 If the modulus on 101 and any given number between 3 and 10 is zero, it's not a prime.
 
-    101 % 3 = 2
-    101 % 4 = 1
-    101 % 5 = 1
-    101 % 6 = 5
-    101 % 7 = 3
-    101 % 8 = 5
-    101 % 9 = 2
+    101 %  3 = 2
+    101 %  4 = 1
+    101 %  5 = 1
+    101 %  6 = 5
+    101 %  7 = 3
+    101 %  8 = 5
+    101 %  9 = 2
     101 % 10 = 1
 
 Yes, it's a prime.
