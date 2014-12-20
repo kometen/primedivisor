@@ -35,7 +35,7 @@ How about 111? Is that a prime? Squareroot is still 10.
     111 % 7 = 6
     111 % 9 = 3
 
-No, it's not a prime since 111 is divisible by three.
+No, it's not a prime since 111 is divisible by 3.
 
 The reason I wrote this program, which many others have done before me, was to get more into
 programming. I originally tried to write it in Apple's Swift, but I got some strange errors
