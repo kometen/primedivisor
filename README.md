@@ -30,10 +30,10 @@ step starting with three. So 3, 5, 7, 9.
 
 How about 103? Is that a prime? Squareroot is still 10.
 
-103 % 3 = 1
-103 % 5 = 3
-103 % 7 = 5
-103 % 9 = 4
+    103 % 3 = 1
+    103 % 5 = 3
+    103 % 7 = 5
+    103 % 9 = 4
 
 Yes, it's a prime.
 
