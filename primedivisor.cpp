@@ -89,7 +89,7 @@ int main(int argc, char const *argv[]) {
 
 	n += 2;
 	b = static_cast<int>(sqrt(n));
-	cout << "n: " << n << ", b: " << b << endl;
+	cout << endl << "n: " << n << ", b: " << b << endl;
 
 	search = squareroots.find(b);
 	if (search != squareroots.end()) {
@@ -107,7 +107,7 @@ int main(int argc, char const *argv[]) {
 
 	n += 2;
 	b = static_cast<int>(sqrt(n));
-	cout << "n: " << n << ", b: " << b << endl;
+	cout << endl << "n: " << n << ", b: " << b << endl;
 
 	search = squareroots.find(b);
 	if (search != squareroots.end()) {
