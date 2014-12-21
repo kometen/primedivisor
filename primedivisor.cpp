@@ -81,6 +81,7 @@ int main(int argc, char const *argv[]) {
 		}
 		cout << endl;
 	} else {
+		cout << "Adding squareroot prime divisors for " << b << endl;
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
 		divisors.clear();
@@ -98,6 +99,7 @@ int main(int argc, char const *argv[]) {
 		}
 		cout << endl;
 	} else {
+		cout << "Adding squareroot prime divisors for " << b << endl;
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
 		divisors.clear();
@@ -112,9 +114,10 @@ int main(int argc, char const *argv[]) {
 		cout << "Squareroot prime divisors for " << search->first << " found" << endl;
 		for (auto it = search->second.begin(); it != search->second.end(); ++it) {
 			cout << " " << it->first << ":" << it->second;
-		cout << endl;
 		}
+		cout << endl;
 	} else {
+		cout << "Adding squareroot prime divisors for " << b << endl;
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
 		divisors.clear();
