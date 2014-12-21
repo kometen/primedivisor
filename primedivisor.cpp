@@ -75,7 +75,11 @@ int main(int argc, char const *argv[]) {
 
 	auto search = squareroots.find(b);
 	if (search != squareroots.end()) {
-		cout << "Squareroot prime divisors found" << endl;
+		cout << "Squareroot prime divisors for " << search->first << " found" << endl;
+		for (auto it = search->second.begin(); it != search->second.end(); ++it) {
+			cout << " " << it->first << ":" << it->second;
+		}
+		cout << endl;
 	} else {
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
@@ -88,7 +92,11 @@ int main(int argc, char const *argv[]) {
 
 	search = squareroots.find(b);
 	if (search != squareroots.end()) {
-		cout << "Squareroot prime divisors found" << endl;
+		cout << "Squareroot prime divisors for " << search->first << " found" << endl;
+		for (auto it = search->second.begin(); it != search->second.end(); ++it) {
+			cout << " " << it->first << ":" << it->second;
+		}
+		cout << endl;
 	} else {
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
@@ -101,18 +109,16 @@ int main(int argc, char const *argv[]) {
 
 	search = squareroots.find(b);
 	if (search != squareroots.end()) {
-		cout << "Squareroot prime divisors found" << endl;
+		cout << "Squareroot prime divisors for " << search->first << " found" << endl;
+		for (auto it = search->second.begin(); it != search->second.end(); ++it) {
+			cout << " " << it->first << ":" << it->second;
+		cout << endl;
+		}
 	} else {
 		primedivisor(x, b, n);
 		squareroots[b] = divisors;
 		divisors.clear();
 	}
-
-	cout << "prime divisors:";
-	for (auto it = divisors.begin(); it != divisors.end(); ++it) {
-		cout << " " << it->first << ":" << it->second;
-	}
-	cout << endl;
 
 	return 0;
 }
