@@ -7,7 +7,8 @@
 using namespace std;
 
 typedef unordered_map<int, int> _umap;
-std::vector<long int> v_primes;
+vector<long int> v_primes;
+long int lprime;
 
 bool IsPrime(int a) {
 	auto b = static_cast<int>(sqrt(a));
@@ -28,13 +29,11 @@ bool IsPrime(int a) {
 	return prime;
 }
 
-void primedivisor(int x, int b, int n) {
-	auto s = 0;
-	auto second = 0;
-	auto loop_prime_divisor = true;
-	for (s = x; s <= b; s += 2) {
+void add_primes(int x, int b) {
+	for (auto s = x; s <= b; s += 2) {
 		if (IsPrime(s)) {
 			v_primes.push_back(s);
+			lprime = s;
 		}
 	}
 }
@@ -48,10 +47,18 @@ int main(int argc, char const *argv[]) {
 		exit(0);
 	}
 
-	auto y = 0;
 	auto is_prime = true;
 	auto n = atoi(argv[1]);
 	auto b = static_cast<int>(sqrt(n));
+
+	if (n == 2) {
+		cout << n << " is prime" << endl;
+		exit(0);
+	}
+	if (n > 3 && n % 2 == 0) {
+		cout << n << " is not prime" << endl;
+		exit(0);
+	}
 
 	// Start with three as divisor if n > 2 to save one small step
 	auto x = 2;
@@ -61,13 +68,16 @@ int main(int argc, char const *argv[]) {
 
 	cout << "n: " << n << ", b: " << b << endl;
 
-	auto search = squareroots.find(b);
-	if (search != squareroots.end()) {
-		cout << "Squareroot prime divisors for " << search->first << " found" << endl;
+	auto search = squareroots[b];
+	if (search) {
+		cout << "Squareroot " << b << " already added to map " << endl;
 	} else {
-		cout << "Adding squareroot prime divisors for " << b << endl;
-		primedivisor(x, b, n);
+		cout << "Adding squareroot " << b << " to map " << endl;
+		squareroots[b] = b;
+		add_primes(x, b);
+		cout << "Elements in prime vector: " << v_primes.size() << endl;
 	}
+	cout << "Elements in squareroots: " << squareroots.size() << endl;
 
 	is_prime = true;
 	// Check whether n is prime
@@ -81,6 +91,7 @@ int main(int argc, char const *argv[]) {
 	} else {
 		cout << n << " is not prime" << endl;
 	}
+	cout << endl;
 
 	return 0;
 }
